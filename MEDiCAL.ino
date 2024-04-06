@@ -77,30 +77,36 @@ void loop() {
 
 void dispense(int motorNum) {
   int tol;
+  int motorSpeed;
   if (motorNum == 1){
     motorNum = 5;
+    motorSpeed = 88;
     tol = 112;
   }
   else if (motorNum == 2){
     motorNum = 6;
+    motorSpeed = 85;
     tol = 95;
   }
   else if (motorNum == 3){
     motorNum = 9;
+    motorSpeed = 85;
     tol = 20;
   }
   else if (motorNum == 4){
     motorNum = 10;
+    motorSpeed = 88;
     tol = 112;
   }
   else if (motorNum == 5){
     motorNum = 11;
+    motorSpeed = 88;
     tol = 112;
   }
   // tol = 30; //ambient vibrations
   // motorNum = 10;
   myServo.attach(motorNum);
-  myServo.write(85);
+  myServo.write(motorSpeed);
   int state = analogRead(vibPin);
   
   while(state < tol){
